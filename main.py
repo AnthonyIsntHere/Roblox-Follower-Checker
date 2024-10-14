@@ -37,7 +37,7 @@ User_Response = requests.get(UserApi)
 User_body = User_Response.json()
 CurrentUsername = User_body["name"]
 
-print(f"\x1b[32;49mChecking followers for the user: \x1b[35;49m{CurrentUsername}")
+print(f"\x1b[35;49m[+] \x1b[32;49mChecking followers for the user: \x1b[35;49m{CurrentUsername}")
 
 def CheckFriends():
     global NextPageCursor
@@ -67,7 +67,7 @@ def CheckFriends():
         with open(f"{CurrentUsername}.txt", "a") as file:
             file.write(json.dumps(UserInfo) + "\n")
         FollowCounter += 1
-    print(f"\x1b[32;49m{FollowCounter}")
+    print(f"\x1b[35;49m[+] \x1b[32;49m{FollowCounter}")
 
 while True:
     if CheckFriends() == False:
@@ -76,6 +76,6 @@ while True:
 FollowCounter += FirstPageCount
 
 os.system("cls")
-print("\x1b[35;49mFinished counting!")
-print(f"\x1b[36;49m{CurrentUsername} \x1b[32;49mhas \x1b[35;49m{FollowCounter} \x1b[32;49mfollowers.")
+print("\x1b[35;49m[+] \x1b[35;49mFinished counting!")
+print(f"\x1b[35;49m[+] \x1b[36;49m{CurrentUsername} \x1b[32;49mhas \x1b[35;49m{FollowCounter} \x1b[32;49mfollowers.")
 os.system("pause")
